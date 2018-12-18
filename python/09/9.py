@@ -5,9 +5,11 @@ def game(players, marbles):
     curr = 0
     player = 1
     for i in range(1, marbles + 1):
+        if i % 1000 == 0:
+            print("Round {}".format(i))
         if i % 23 != 0:
             # If not a multiple of 23, just add
-            j = ((curr + 1) % length) + 1
+            j = ((curr + 1) % len(circle)) + 1
             circle.insert(j, i)
             curr = j
         else:
@@ -40,5 +42,6 @@ if __name__ == '__main__':
 
     # Should've used a doubly linked list or something instead of a list for the circle.
     # Moving all the elements on insertions and deletions is really slow.
+    # 7090400
     last_points *= 100
     game(players, last_points)
