@@ -1,9 +1,3 @@
-def get_insert_spot(curr, length):
-    # Insert between the marbles 1 and 2 steps clockwise (right) of curr
-    # Should insert at the index +1 the returned index
-    return (curr + 1) % length
-
-
 def game(players, marbles):
     points = dict()
 
@@ -13,7 +7,7 @@ def game(players, marbles):
     for i in range(1, marbles + 1):
         if i % 23 != 0:
             # If not a multiple of 23, just add
-            j = get_insert_spot(curr, len(circle)) + 1
+            j = ((curr + 1) % length) + 1
             circle.insert(j, i)
             curr = j
         else:
@@ -42,4 +36,9 @@ def game(players, marbles):
 if __name__ == '__main__':
     players = 473
     last_points = 70904
+    game(players, last_points)
+
+    # Should've used a doubly linked list or something instead of a list for the circle.
+    # Moving all the elements on insertions and deletions is really slow.
+    last_points *= 100
     game(players, last_points)
