@@ -1,5 +1,3 @@
-import sys
-
 class TreeNode:
     def __init__(self, children, metadata):
         self.children = children
@@ -42,9 +40,6 @@ def parse_tree(data, low):
     metadata = data[low:low + num_metadata]
 
     return TreeNode(children, metadata), low + num_metadata
-
-
-    
 
 
 if __name__ == '__main__':
