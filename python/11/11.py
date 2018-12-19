@@ -103,5 +103,4 @@ if __name__ == '__main__':
                     mx = x
                     my = y
                     best_size = size
-
     print("Max power for any size is {} at x={}, y={} with size={}".format(max_power, mx + 1, my + 1, best_size))
