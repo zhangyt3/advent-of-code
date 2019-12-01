@@ -1,1 +1,1 @@
-Advent of Code 2018 in Python and/or Rust.
+My [Advent of Code](https://adventofcode.com/) solutions in mostly Python.
