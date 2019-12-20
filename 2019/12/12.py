@@ -10,6 +10,16 @@ class Moon:
 
     def calc_energy(self):
         return sum([abs(x) for x in self.pos]) * sum([abs(x) for x in self.vel])
+    
+    def get_state_string(self):
+        return ' '.join([str(x) for x in self.pos]) + ' ' + ' '.join([str(x) for x in self.vel])
+
+def hash_state(moons):
+    state = ""
+    for moon in moons:
+        state += moon.get_state_string()
+        state += "|"
+    return state
 
 def simulate_round(positions):
     # Calculate gravity
@@ -38,13 +48,20 @@ def simulate_round(positions):
     return positions
 
 def simulate(positions, rounds):
+    states = set()
     for r in range(rounds):
         positions = simulate_round(positions) 
+        state = hash_state(positions)
+        if state in states:
+            print(f'Rounds needed to reach previous state: {r+1}')
+            break
+
+        states.add(state)
     
-    energy = 0
-    for moon in positions:
-        energy += moon.calc_energy()
-    print(f'After {rounds} rounds the total energy is {energy}')
+    # energy = 0
+    # for moon in positions:
+    #     energy += moon.calc_energy()
+    # print(f'After {rounds} rounds the total energy is {energy}')
 
 if __name__ == '__main__':
     positions = [
@@ -54,5 +71,5 @@ if __name__ == '__main__':
         Moon([2, -14, -9])
     ]
 
-    simulate(positions, 1000)
+    simulate(positions, 1000000)
 
