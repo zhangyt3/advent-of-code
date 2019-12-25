@@ -174,12 +174,3 @@ class Computer:
                 raise Exception(f"Invalid opcode {opcode}")
         
         return "DONE"
-
-if __name__ == '__main__':
-    code = []
-    with open('9.in') as f:
-        code = [int(x) for x in f.readline().split(',')]
-    
-    comp = Computer(code)
-    comp.run(1)
-    comp.run(2)
