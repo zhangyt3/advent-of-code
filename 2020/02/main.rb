@@ -28,6 +28,3 @@ passwords.each do |password, letter, i, j|
     end
 end
 puts "Valid passwords: #{valid}"
-
-
-
