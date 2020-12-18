@@ -54,7 +54,7 @@ ids = ids.sort
 
 for i in 0...(ids.length() - 1)
     if ids[i + 1] != ids[i] + 1
-        puts "Your set id: #{ids[i] + 1}"
+        puts "Your seat id: #{ids[i] + 1}"
         break
     end
 end
